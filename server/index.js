@@ -12,4 +12,4 @@ app.use(express.json())
 app.use('/api/books',authRoutes)
 
 const PORT = process.env.PORT || 5000;
-ap.listen(PORT,()=>console.log(`Server${PORT} connected successfully`))
+app.listen(PORT,()=>console.log(`Server${PORT} connected successfully`))
