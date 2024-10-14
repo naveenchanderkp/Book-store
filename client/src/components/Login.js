@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { registerUser } from "../Store/authSlice";
+import { loginUser } from "../Store/authSlice";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
-export default function Signup() {
+export default function Login() {
   const [formData, setFormData] = useState({
-    name:'',
+   
     email:'',
     password:''
   });
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -18,21 +19,22 @@ export default function Signup() {
   };
  
 
-  const handleRegister = (event) => {
+  const handleLogin = (event) => {
     event.preventDefault();
-    dispatch(registerUser(formData));
+    dispatch(loginUser(formData));
     console.log({formData})
+    navigate('/dashboard')
   };
 
   return (
-    <form onSubmit={handleRegister}>
+    <form onSubmit={handleLogin}>
       <div className="bg-white px-6 py-6 border-2 border-gary-100 rounded-3xl">
         <h1 className="text-4xl font-semibold">Welcome back!!</h1>
         <p className="font-medium text-lg flex justify-center font-bold mt-4">
-          Register
+          Login
         </p>
         <div className="mt-4">
-          <div>
+          {/* <div>
             <label className="text-lg font-medium">Full Name</label>
             <input
               onChange={handleChange}
@@ -40,7 +42,7 @@ export default function Signup() {
               placeholder="Enter your email"
               name="name"
             />
-          </div>
+          </div> */}
           <div>
             <label className="text-lg font-medium">Email</label>
             <input
@@ -73,7 +75,7 @@ export default function Signup() {
           </div>
           <div className="mt-6 flex flex-col gap-y-4">
             <button className="active:scale-[.98] active:duartion-75 transition-all hover:scale-[1.01] ease-in-out bg-violet-500 text-white text-lg font-bold py-2 rounded-xl">
-              Sign in
+              Login
             </button>
             <button className="flex border-2 border-gray-100 py-2 rounded-xl items-center justify-center active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out">
               <svg
@@ -114,9 +116,9 @@ export default function Signup() {
           </div>
           <div className="mt-6 flex items-center justify-center">
             <p className="font-medium text-base">Dont' have an account?</p>
-            <Link to="/login" className="ml-2 font-medium text-base text-blue-400">
+            {/* <Link to="/login" className="ml-2 font-medium text-base text-blue-400">
               Sign in
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
