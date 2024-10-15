@@ -1,9 +1,12 @@
 import React from 'react'
+import NavBar from './NavBar'
+import Main from './Main'
 
 function Dashboard() {
   return (
     <div>
-      <h1>Welcome to the book shop</h1>
+     <NavBar/>
+     <Main/>
     </div>
   )
 }

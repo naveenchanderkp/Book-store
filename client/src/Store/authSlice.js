@@ -50,6 +50,9 @@ export const loginUser = (formData)=>async(dispatch)=>{
     try {
         const response = await axios.post("http://localhost:5000/api/books/login",formData)
         dispatch(updateIsLogin(response.data))
+        if(!response.status){
+            console.log("invalid user")
+        }
     } catch (error) {
     console.log("Login in failed")        
     }
