@@ -16,3 +16,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@layer components {
+  .card {
+    @apply 
+      bg-white text-gray-700
+      w-72 min-h-[10rem]
+      shadow-lg rounded-md overflow-hidden
+  }
+  .badge{
+    @apply 
+    px-3 py-1 rounded-full text-xs bg-gray-100 
+   }
+   .product-title{
+    @apply 
+      font-semibold text-2xl 
+      overflow-ellipsis overflow-hidden whitespace-nowrap
+   }
+}
